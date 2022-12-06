@@ -1,5 +1,7 @@
+lipX=0;
+lipY=0;
 function preload(){
- 
+lipstick_filter = loadImage('https://i.postimg.cc/RF3Jwnjv/l1.png')
 }
 function setup(){
    canvas = createCanvas(300, 300);
@@ -19,14 +21,16 @@ function gotPoses (results)
    if(results.length > 0)
    {
        console.log(results);
-       console.log("nose x =" + results[0].pose.nose.x);
-       console.log("nose y =" + results[0].pose.nose.y);
+       console.log("Lip x =" + results[0].pose.lip.x);
+       console.log("Lip y =" + results[0].pose.lip.y);
    }
 }
 function draw(){
- Image(video, 0, 0, 300, 300);
+ image(video, 0, 0, 250, 250);
+ image(lipstick_filter, lipX, lipY, 30, 30);
 }
 function take_snapshot(){
    SVGFEFuncAElement('myFilterImage.png');
 }
-
+ 
+ 
